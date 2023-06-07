@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Simple Note',
+      title: 'Moto Record',
       theme: ThemeData(
         useMaterial3: true,
         // primarySwatch: Colors.blue,

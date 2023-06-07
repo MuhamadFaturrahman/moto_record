@@ -20,8 +20,33 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Simple Note'),
+        automaticallyImplyLeading: false,
+        title: const Text('Moto Record'),
+        actions: [
+          Builder(builder: (context) {
+            return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                icon: const Icon(Icons.menu));
+          })
+        ],
       ),
+      endDrawer: Drawer(
+          child: ListView(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Builder(builder: (context) {
+              return OutlinedButton(
+                  onPressed: () {
+                    GoRouter.of(context).pushNamed('credit');
+                  },
+                  child: const Text("About Us"));
+            }),
+          )
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           GoRouter.of(context).pushNamed('add-note');
@@ -35,7 +60,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, box, _) {
           if (box.isEmpty) {
             return const Center(
-              child: Text("Tidak Ada Data"),
+              child: Text("No Record"),
             );
           } else {
             return ListView.separated(
