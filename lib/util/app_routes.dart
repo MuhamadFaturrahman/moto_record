@@ -4,11 +4,13 @@ import 'package:simple_note/pages/home_page.dart';
 import 'package:simple_note/pages/add_note_page.dart';
 
 import '../model/note.dart';
+import '../pages/credit_page.dart';
 
 class AppRoutes {
   static const home = 'home';
   static String addNote = 'add-note';
   static const editNote = 'edit-note';
+  static const credit = 'credit';
 
   static Page homePageBuilder(
     BuildContext context,
@@ -16,6 +18,15 @@ class AppRoutes {
   ) {
     return const MaterialPage(
       child: HomePage(),
+    );
+  }
+
+  static Page creditPageBuilder(
+    BuildContext context,
+    GoRouterState state,
+  ) {
+    return const MaterialPage(
+      child: creditPage(),
     );
   }
 
@@ -56,6 +67,11 @@ class AppRoutes {
             name: editNote,
             path: 'edit-note',
             pageBuilder: editNotePageBuilder,
+          ),
+          GoRoute(
+            path: 'credit',
+            name: credit,
+            pageBuilder: creditPageBuilder,
           )
         ],
       ),
