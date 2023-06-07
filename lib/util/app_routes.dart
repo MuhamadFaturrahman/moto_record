@@ -26,7 +26,7 @@ class AppRoutes {
     GoRouterState state,
   ) {
     return const MaterialPage(
-      child: creditPage(),
+      child: CreditPage(),
     );
   }
 

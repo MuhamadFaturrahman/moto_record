@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class creditPage extends StatelessWidget {
-  const creditPage({super.key});
+class CreditPage extends StatelessWidget {
+  const CreditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
