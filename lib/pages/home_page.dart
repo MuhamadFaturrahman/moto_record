@@ -51,11 +51,11 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           GoRouter.of(context).pushNamed('add-note');
         },
+        backgroundColor: const Color(0xFFCC9B29),
         child: const Icon(
           color: Colors.white,
           Icons.post_add_rounded,
         ),
-        backgroundColor:const Color(0xFFCC9B29),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box(DatabaseService.boxName).listenable(),
@@ -160,7 +160,7 @@ class NoteCard extends StatelessWidget {
           );
         },
         title: Text(note.title),
-        subtitle: Text(note.description),
+        subtitle: Text(note.type),
         trailing: Text('Dibuat Pada : \n ${note.createdAt.toSunda()}'),
       ),
     );
