@@ -19,8 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Moto Record',
-      theme: ThemeData.dark(
-        useMaterial3: true,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFCC9B29),
+        )
         // primarySwatch: Colors.blue,
       ),
       routeInformationParser: AppRoutes().goRouter.routeInformationParser,

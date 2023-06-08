@@ -52,8 +52,10 @@ class _HomePageState extends State<HomePage> {
           GoRouter.of(context).pushNamed('add-note');
         },
         child: const Icon(
+          color: Colors.white,
           Icons.post_add_rounded,
         ),
+        backgroundColor:const Color(0xFFCC9B29),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box(DatabaseService.boxName).listenable(),
