@@ -20,6 +20,12 @@ class _AddNotePageState extends State<AddNotePage> {
 
   late TextEditingController _titleController;
   late TextEditingController _descController;
+  late TextEditingController _typeController;
+  late TextEditingController _odometerController;
+  late TextEditingController _feeController;
+  late TextEditingController _dateController;
+  late TextEditingController _detailController;
+  late TextEditingController _identityController;
 
   @override
   void initState() {
@@ -97,11 +103,18 @@ class _AddNotePageState extends State<AddNotePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        
         onPressed: () async {
           if (_formkey.currentState!.validate()) {
             Note tempNote = Note(
               _titleController.text,
               _descController.text,
+              _typeController.text,
+              _odometerController.text as int,
+              _feeController.text as double,
+              _dateController.text as DateTime,
+              _detailController.text,
+              _identityController.text,
               DateTime.now(),
             );
             if (widget.note != null) {

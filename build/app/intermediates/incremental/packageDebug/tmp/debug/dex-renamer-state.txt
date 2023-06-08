@@ -1,0 +1,4 @@
+#Wed Jun 07 20:59:04 ICT 2023
+base.0=C\:\\Users\\igent\\OneDrive\\Documents\\Latihan Genta\\moto_record\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
