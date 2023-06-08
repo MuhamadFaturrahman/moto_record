@@ -73,11 +73,22 @@ class _HomePageState extends State<HomePage> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text('Are you sure you want to delete?'),
+                          title: const Text(
+                            'Are you sure you want to delete?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 18),
+                          ),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(context, false),
-                              child: const Text('No'),
+                              style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.green)),
+                              child: const Text('No, Cancel'),
                             ),
                             TextButton(
                               onPressed: () {
@@ -91,9 +102,17 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 );
                               },
-                              child: const Text('Yes'),
+                              style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.red)),
+                              child: const Text('Yes, Delete'),
                             )
                           ],
+                          actionsAlignment: MainAxisAlignment.center,
                         );
                       },
                     );
