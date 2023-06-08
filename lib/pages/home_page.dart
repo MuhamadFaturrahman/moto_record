@@ -68,12 +68,33 @@ class _HomePageState extends State<HomePage> {
                 Note tempNote = box.getAt(index);
                 return Dismissible(
                   key: Key(tempNote.key.toString()),
-                  onDismissed: (_) {
-                    dbService.deleteNote(tempNote).then((_) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content:
-                              Text("Data ${tempNote.title} telah dihapus")));
-                    });
+                  confirmDismiss: (DismissDirection direction) async {
+                    return await showDialog<bool>(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Are you sure you want to delete?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              child: const Text('No'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                dbService.deleteNote(tempNote).then((_) {
+                                  Navigator.pop(context, false);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              "${tempNote.title} has been deleted from the record")));
+                                });
+                              },
+                              child: const Text('Yes'),
+                            )
+                          ],
+                        );
+                      },
+                    );
                   },
                   child: NoteCard(
                     note: tempNote,
