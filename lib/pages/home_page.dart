@@ -68,12 +68,54 @@ class _HomePageState extends State<HomePage> {
                 Note tempNote = box.getAt(index);
                 return Dismissible(
                   key: Key(tempNote.key.toString()),
-                  onDismissed: (_) {
-                    dbService.deleteNote(tempNote).then((_) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content:
-                              Text("Data ${tempNote.title} telah dihapus")));
-                    });
+                  confirmDismiss: (DismissDirection direction) async {
+                    return await showDialog<bool>(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text(
+                            'Are you sure you want to delete?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.green)),
+                              child: const Text('No, Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                dbService.deleteNote(tempNote).then(
+                                  (_) {
+                                    Navigator.pop(context, false);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(
+                                                "${tempNote.title} has been deleted from the record")));
+                                  },
+                                );
+                              },
+                              style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.red)),
+                              child: const Text('Yes, Delete'),
+                            )
+                          ],
+                          actionsAlignment: MainAxisAlignment.center,
+                        );
+                      },
+                    );
                   },
                   child: NoteCard(
                     note: tempNote,
