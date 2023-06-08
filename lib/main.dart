@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Moto Record',
-      theme: ThemeData(
+      theme: ThemeData.dark(
         useMaterial3: true,
         // primarySwatch: Colors.blue,
       ),
