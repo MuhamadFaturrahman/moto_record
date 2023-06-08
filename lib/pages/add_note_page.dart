@@ -27,8 +27,6 @@ class _AddNotePageState extends State<AddNotePage> {
   late TextEditingController _detailController;
   late TextEditingController _identityController;
 
-
-
   @override
   void initState() {
     _titleController = TextEditingController();
@@ -111,6 +109,11 @@ class _AddNotePageState extends State<AddNotePage> {
               _titleController.text,
               _descController.text,
               _typeController.text,
+              _odometerController.text as int,
+              _feeController.text as double,
+              _dateController.text as DateTime,
+              _detailController.text,
+              _identityController.text,
               DateTime.now(),
             );
             if (widget.note != null) {
