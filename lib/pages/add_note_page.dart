@@ -25,17 +25,24 @@ class _AddNotePageState extends State<AddNotePage> {
   late TextEditingController _feeController;
   late TextEditingController _dateController;
   late TextEditingController _detailController;
-  late TextEditingController _identityController;
 
   @override
   void initState() {
     _titleController = TextEditingController();
     _descController = TextEditingController();
     _typeController = TextEditingController();
+    _odometerController = TextEditingController();
+    _feeController = TextEditingController();
+    _dateController = TextEditingController();
+    _detailController = TextEditingController();
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descController.text = widget.note!.description;
       _typeController.text = widget.note!.type;
+      _odometerController.text = widget.note!.odometer.toString();
+      _feeController.text = widget.note!.serviceFee.toString();
+      _dateController.text = widget.note!.serviceDate.toString();
+      _detailController.text = widget.note!.serviceDetail.toString();
     }
     super.initState();
   }
@@ -44,6 +51,11 @@ class _AddNotePageState extends State<AddNotePage> {
   void dispose() {
     _titleController.dispose();
     _descController.dispose();
+    _typeController.dispose();
+    _odometerController.dispose();
+    _feeController.dispose();
+    _dateController.dispose();
+    _detailController.dispose();
     super.dispose();
   }
 
@@ -111,6 +123,102 @@ class _AddNotePageState extends State<AddNotePage> {
                         )),
                   ),
                 ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _odometerController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Odometer"),
+                        hintText: 'Your Motocycle Odometer',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _feeController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Service Fee"),
+                        hintText: 'Your Motocycle Service Fee',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _dateController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Service Date"),
+                        hintText: 'Your Motocycle Service Date',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _detailController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Service Detail"),
+                        hintText: 'Your Motocycle Service Detail',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
+                  ),
+                ),
                 TextFormField(
                   maxLines: 100,
                   controller: _descController,
@@ -139,11 +247,11 @@ class _AddNotePageState extends State<AddNotePage> {
               _titleController.text,
               _descController.text,
               _typeController.text,
-              _odometerController.text as int,
-              _feeController.text as double,
-              _dateController.text as DateTime,
-              _detailController.text,
-              _identityController.text,
+              int.parse(_odometerController.text),
+              0.0, // Service fee set to 0 temporarily
+              DateTime.now(),
+              "", // Empty service detail
+              "", // Empty identity
               DateTime.now(),
             );
             if (widget.note != null) {
