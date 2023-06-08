@@ -81,13 +81,15 @@ class _HomePageState extends State<HomePage> {
                             ),
                             TextButton(
                               onPressed: () {
-                                dbService.deleteNote(tempNote).then((_) {
-                                  Navigator.pop(context, false);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(
-                                              "${tempNote.title} has been deleted from the record")));
-                                });
+                                dbService.deleteNote(tempNote).then(
+                                  (_) {
+                                    Navigator.pop(context, false);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(
+                                                "${tempNote.title} has been deleted from the record")));
+                                  },
+                                );
                               },
                               child: const Text('Yes'),
                             )
