@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CreditPage extends StatelessWidget {
   const CreditPage({super.key});
@@ -46,6 +47,13 @@ class CreditPage extends StatelessWidget {
                             Text(
                               'Project Manager',
                               style: TextStyle(fontSize: 16.0),
+                            ),
+                            Text(
+                              '@muhamad_faturrahman',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontStyle: FontStyle.italic,
+                              ),
                             ),
                           ],
                         ),
