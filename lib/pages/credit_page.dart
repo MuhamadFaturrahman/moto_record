@@ -88,6 +88,13 @@ class CreditPage extends StatelessWidget {
                               'Front-End Developer',
                               style: TextStyle(fontSize: 16.0),
                             ),
+                            Text(
+                              '@ssyrwnia_',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -120,6 +127,13 @@ class CreditPage extends StatelessWidget {
                             Text(
                               'Back-End Developer',
                               style: TextStyle(fontSize: 16.0),
+                            ),
+                            Text(
+                              '@gentasmail_22',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontStyle: FontStyle.italic,
+                              ),
                             ),
                           ],
                         ),
