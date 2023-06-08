@@ -42,7 +42,11 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     GoRouter.of(context).pushNamed('credit');
                   },
-                  child: const Text("About Us"));
+                  style: const ButtonStyle(),
+                  child: const Text(
+                    "About Us",
+                    style: TextStyle(color: Color(0xFFCC9B29)),
+                  ));
             }),
           )
         ],

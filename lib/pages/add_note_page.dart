@@ -31,9 +31,11 @@ class _AddNotePageState extends State<AddNotePage> {
   void initState() {
     _titleController = TextEditingController();
     _descController = TextEditingController();
+    _typeController = TextEditingController();
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descController.text = widget.note!.description;
+      _typeController.text = widget.note!.type;
     }
     super.initState();
   }
@@ -61,26 +63,52 @@ class _AddNotePageState extends State<AddNotePage> {
             key: _formkey,
             child: Column(
               children: [
-                TextFormField(
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _titleController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Title"),
+                        hintText: 'Type your record title',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
                   ),
-                  controller: _titleController,
-                  validator: (value) {
-                    if (value == null || value == "") {
-                      return "Judul harap diisi";
-                    }
-                    return null;
-                  },
-                  decoration: const InputDecoration(
-                    isDense: true,
-                    hintText: 'Masukkan Judul',
-                    hintStyle: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    border: InputBorder.none,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: TextFormField(
+                    controller: _typeController,
+                    validator: (value) {
+                      if (value == null || value == "") {
+                        return "Please fill the required input";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        label: Text("Motocycle Type"),
+                        hintText: 'Your Motocycle Type',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        )),
                   ),
                 ),
                 TextFormField(
@@ -103,7 +131,8 @@ class _AddNotePageState extends State<AddNotePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        
+        backgroundColor: const Color(0xFFCC9B29),
+        foregroundColor: Colors.white,
         onPressed: () async {
           if (_formkey.currentState!.validate()) {
             Note tempNote = Note(
