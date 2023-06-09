@@ -14,6 +14,16 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SplashScreen(), // Mengatur SplashScreen sebagai halaman awal
+      // Konfigurasi tema, rute, dan properti lainnya di sini
+    );
+  }
+}
+
 class _HomePageState extends State<HomePage> {
   final DatabaseService dbService = DatabaseService();
   @override
