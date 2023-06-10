@@ -14,12 +14,6 @@ class Note extends HiveObject {
   @HiveField(4)
   late double serviceFee;
   @HiveField(5)
-  late DateTime serviceDate;
-  @HiveField(6)
-  late String serviceDetail;
-  @HiveField(7)
-  late String identity;
-  @HiveField(8)
   late DateTime createdAt;
 
   Note(
@@ -28,9 +22,6 @@ class Note extends HiveObject {
     this.type,
     this.odometer,
     this.serviceFee,
-    this.serviceDate,
-    this.serviceDetail,
-    this.identity,
     this.createdAt,
   );
 }

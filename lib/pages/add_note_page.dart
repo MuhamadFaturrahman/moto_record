@@ -23,8 +23,6 @@ class _AddNotePageState extends State<AddNotePage> {
   late TextEditingController _typeController;
   late TextEditingController _odometerController;
   late TextEditingController _feeController;
-  late TextEditingController _dateController;
-  late TextEditingController _detailController;
 
   @override
   void initState() {
@@ -33,16 +31,12 @@ class _AddNotePageState extends State<AddNotePage> {
     _typeController = TextEditingController();
     _odometerController = TextEditingController();
     _feeController = TextEditingController();
-    _dateController = TextEditingController();
-    _detailController = TextEditingController();
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descController.text = widget.note!.description;
       _typeController.text = widget.note!.type;
       _odometerController.text = widget.note!.odometer.toString();
       _feeController.text = widget.note!.serviceFee.toString();
-      _dateController.text = widget.note!.serviceDate.toString();
-      _detailController.text = widget.note!.serviceDetail.toString();
     }
     super.initState();
   }
@@ -54,8 +48,6 @@ class _AddNotePageState extends State<AddNotePage> {
     _typeController.dispose();
     _odometerController.dispose();
     _feeController.dispose();
-    _dateController.dispose();
-    _detailController.dispose();
     super.dispose();
   }
 
@@ -171,54 +163,6 @@ class _AddNotePageState extends State<AddNotePage> {
                         )),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: TextFormField(
-                    controller: _dateController,
-                    validator: (value) {
-                      if (value == null || value == "") {
-                        return "Please fill the required input";
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Service Date"),
-                        hintText: 'Your Motocycle Service Date',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: TextFormField(
-                    controller: _detailController,
-                    validator: (value) {
-                      if (value == null || value == "") {
-                        return "Please fill the required input";
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Service Detail"),
-                        hintText: 'Your Motocycle Service Detail',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
-                  ),
-                ),
                 TextFormField(
                   maxLines: 100,
                   controller: _descController,
@@ -248,10 +192,7 @@ class _AddNotePageState extends State<AddNotePage> {
               _descController.text,
               _typeController.text,
               int.parse(_odometerController.text),
-              0.0, // Service fee set to 0 temporarily
-              DateTime.now(),
-              "", // Empty service detail
-              "", // Empty identity
+              double.parse(_feeController.text),
               DateTime.now(),
             );
             if (widget.note != null) {
