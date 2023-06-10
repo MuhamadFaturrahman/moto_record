@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:simple_note/extension/date_formater.dart';
 import 'package:simple_note/model/note.dart';
 import 'package:simple_note/services/database_service.dart';
 
@@ -23,6 +24,7 @@ class _AddNotePageState extends State<AddNotePage> {
   late TextEditingController _typeController;
   late TextEditingController _odometerController;
   late TextEditingController _feeController;
+  late TextEditingController _dateController;
 
   @override
   void initState() {
@@ -31,12 +33,14 @@ class _AddNotePageState extends State<AddNotePage> {
     _typeController = TextEditingController();
     _odometerController = TextEditingController();
     _feeController = TextEditingController();
+    _dateController = TextEditingController();
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descController.text = widget.note!.description;
       _typeController.text = widget.note!.type;
       _odometerController.text = widget.note!.odometer.toString();
       _feeController.text = widget.note!.serviceFee.toString();
+      _dateController.text = widget.note!.createdAt.toSunda();
     }
     super.initState();
   }
@@ -163,6 +167,41 @@ class _AddNotePageState extends State<AddNotePage> {
                         )),
                   ),
                 ),
+                if (widget.note != null)
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: TextFormField(
+                      controller: _dateController,
+                      validator: (value) {
+                        if (value == null || value == "") {
+                          return "Please fill the required input";
+                        }
+                        return null;
+                      },
+                      onTap: () {
+                        showDatePicker(
+                                context: context,
+                                initialDate: DateTime.timestamp(),
+                                firstDate: DateTime(1800),
+                                lastDate: DateTime(3000))
+                            .then((pickedDate) {
+                          _dateController.text = pickedDate.toString();
+                        });
+                      },
+                      decoration: const InputDecoration(
+                          isDense: true,
+                          label: Text("Service Date"),
+                          hintText: 'Your Motocycle Service Date',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                            borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                            borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                          )),
+                    ),
+                  ),
                 TextFormField(
                   maxLines: 100,
                   controller: _descController,
@@ -187,17 +226,25 @@ class _AddNotePageState extends State<AddNotePage> {
         foregroundColor: Colors.white,
         onPressed: () async {
           if (_formkey.currentState!.validate()) {
-            Note tempNote = Note(
-              _titleController.text,
-              _descController.text,
-              _typeController.text,
-              int.parse(_odometerController.text),
-              double.parse(_feeController.text),
-              DateTime.now(),
-            );
             if (widget.note != null) {
+              Note tempNote = Note(
+                _titleController.text,
+                _descController.text,
+                _typeController.text,
+                int.parse(_odometerController.text),
+                double.parse(_feeController.text),
+                DateTime.parse(_dateController.text),
+              );
               await dbService.editNote(widget.note!.key, tempNote);
             } else {
+              Note tempNote = Note(
+                _titleController.text,
+                _descController.text,
+                _typeController.text,
+                int.parse(_odometerController.text),
+                double.parse(_feeController.text),
+                DateTime.now(),
+              );
               await dbService.addNote(tempNote);
             }
             if (!mounted) return;
