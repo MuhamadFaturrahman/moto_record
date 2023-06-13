@@ -69,9 +69,11 @@ class _HomePageState extends State<HomePage> {
               child: Text("No Record"),
             );
           } else {
+            final sortedList = box.values.toList().reversed.toList();
+
             return ListView.separated(
               itemBuilder: (context, index) {
-                Note tempNote = box.getAt(index);
+                Note tempNote = sortedList[index];
                 return Dismissible(
                   key: Key(tempNote.key.toString()),
                   confirmDismiss: (DismissDirection direction) async {

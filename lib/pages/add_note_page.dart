@@ -82,17 +82,26 @@ class _AddNotePageState extends State<AddNotePage> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Title"),
-                        hintText: 'Type your record title',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
+                      isDense: true,
+                      label: Text("Title"),
+                      hintText: 'Type your record title',
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
@@ -106,17 +115,26 @@ class _AddNotePageState extends State<AddNotePage> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Motocycle Type"),
-                        hintText: 'Your Motocycle Type',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
+                      isDense: true,
+                      label: Text("Motocycle Type"),
+                      hintText: 'Your Motocycle Type',
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
@@ -130,17 +148,26 @@ class _AddNotePageState extends State<AddNotePage> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Odometer"),
-                        hintText: 'Your Motocycle Odometer',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
+                      isDense: true,
+                      label: Text("Odometer"),
+                      hintText: 'Your Motocycle Odometer',
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
@@ -154,17 +181,26 @@ class _AddNotePageState extends State<AddNotePage> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                        isDense: true,
-                        label: Text("Service Fee"),
-                        hintText: 'Your Motocycle Service Fee',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
-                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                        )),
+                      isDense: true,
+                      label: Text("Service Fee"),
+                      hintText: 'Your Motocycle Service Fee',
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                      ),
+                    ),
                   ),
                 ),
                 if (widget.note != null)
@@ -189,17 +225,26 @@ class _AddNotePageState extends State<AddNotePage> {
                         });
                       },
                       decoration: const InputDecoration(
-                          isDense: true,
-                          label: Text("Service Date"),
-                          hintText: 'Your Motocycle Service Date',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            borderSide: BorderSide(color: Color(0xFFCC9B29)),
-                          )),
+                        isDense: true,
+                        label: Text("Service Date"),
+                        hintText: 'Your Motocycle Service Date',
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                        ),
+                      ),
                     ),
                   ),
                 TextFormField(
@@ -207,13 +252,28 @@ class _AddNotePageState extends State<AddNotePage> {
                   controller: _descController,
                   validator: (value) {
                     if (value == null || value == "") {
-                      return "Deskripsi harap diisi";
+                      return "Please fill the required input";
                     }
                     return null;
                   },
                   decoration: const InputDecoration(
-                    hintText: 'Tulis Note Anda Disini',
-                    border: InputBorder.none,
+                    hintText: 'Your Motocycle Service Detail',
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderSide: BorderSide(color: Color(0xFFCC9B29)),
+                    ),
                   ),
                 ),
               ],

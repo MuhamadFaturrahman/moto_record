@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Moto Record',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFCC9B29),
-        )
-        // primarySwatch: Colors.blue,
-      ),
+          brightness: Brightness.dark,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFFCC9B29),
+          )
+          // primarySwatch: Colors.blue,
+          ),
       routeInformationParser: AppRoutes().goRouter.routeInformationParser,
       routeInformationProvider: AppRoutes().goRouter.routeInformationProvider,
       routerDelegate: AppRoutes().goRouter.routerDelegate,
