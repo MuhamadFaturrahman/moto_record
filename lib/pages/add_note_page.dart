@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simple_note/extension/date_formater.dart';
 import 'package:simple_note/model/note.dart';
@@ -140,6 +141,8 @@ class _AddNotePageState extends State<AddNotePage> {
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     controller: _odometerController,
                     validator: (value) {
                       if (value == null || value == "") {
@@ -173,6 +176,8 @@ class _AddNotePageState extends State<AddNotePage> {
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     controller: _feeController,
                     validator: (value) {
                       if (value == null || value == "") {
@@ -207,6 +212,7 @@ class _AddNotePageState extends State<AddNotePage> {
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child: TextFormField(
+                      keyboardType: TextInputType.datetime,
                       controller: _dateController,
                       validator: (value) {
                         if (value == null || value == "") {

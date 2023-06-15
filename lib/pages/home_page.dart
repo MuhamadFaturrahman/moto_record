@@ -72,6 +72,7 @@ class _HomePageState extends State<HomePage> {
             final sortedList = box.values.toList().reversed.toList();
 
             return ListView.separated(
+              padding: const EdgeInsets.only(top: 12),
               itemBuilder: (context, index) {
                 Note tempNote = sortedList[index];
                 return Dismissible(
@@ -136,6 +137,9 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               itemCount: box.length,
+              scrollDirection: Axis.vertical,
+              physics: const BouncingScrollPhysics(),
+              controller: ScrollController(),
             );
           }
         },
